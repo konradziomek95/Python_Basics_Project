@@ -27,11 +27,10 @@ def guess():
     if request.method == "GET":
         return FRONT_WEB.format(guess=500, min=0, max=1000)
     else:
+        guess = int(request.form.get("guess"))
         min_number = int(request.form.get("min"))
         max_number = int(request.form.get("max"))
         user_answer = request.form.get("user_answer")
-        guess = int(request.form.get("guess"))
-
         if user_answer == "too big":
             max_number = guess
         elif user_answer == "too small":
